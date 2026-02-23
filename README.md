@@ -12,7 +12,7 @@ Thanks for checking out this coding challenge.
 
 ## The challenge
 
-Build a weather app using the [Open-Meteo API](https://open-meteo.com/) and get it looking as close to the design as possible.
+Build a weather app using the [Open-Meteo API](https://open-meteo.com/) or [National Weather Service API](https://www.weather.gov/documentation/services-web-api) and get it looking as close to the design as possible.
 
 You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
 
