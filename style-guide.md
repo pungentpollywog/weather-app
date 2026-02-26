@@ -13,22 +13,22 @@ The designs were created to the following widths:
 
 ### Neutral
 
-- **Neutral 900**: hsl(243, 96%, 9%)
-- **Neutral 800**: hsl(243, 27%, 20%)
-- **Neutral 700**: hsl(243, 23%, 24%)
-- **Neutral 600**: hsl(243, 23%, 30%)
-- **Neutral 300**: hsl(240, 6%, 70%)
-- **Neutral 200**: hsl(250, 6%, 84%)
-- **Neutral 0**: hsl(0, 0%, 100%)
+- **Neutral 900**: hsl(243, 96%, 9%)    /* bg-base */
+- **Neutral 800**: hsl(243, 27%, 20%)   /* bg-base-strongest */
+- **Neutral 700**: hsl(243, 23%, 24%)   /* bg-base-stronger */
+- **Neutral 600**: hsl(243, 23%, 30%)   /* bg-base-strong */
+- **Neutral 300**: hsl(240, 6%, 70%)    /* bg-surface */
+- **Neutral 200**: hsl(250, 6%, 84%)    /* bg-surface-weak */
+- **Neutral 0**: hsl(0, 0%, 100%)       /* text-brand-default */
 
 ### Orange
 
-- **Orange 500**: hsl(28, 100%, 52%)
+- **Orange 500**: hsl(28, 100%, 52%)    /* bg-accent */
 
 ### Blue
 
-- **Blue 500**: hsl(233, 67%, 56%)
-- **Blue 700**: hsl(248, 70%, 36%)
+- **Blue 500**: hsl(233, 67%, 56%) /* bg-primary (cta button) */
+- **Blue 700**: hsl(248, 70%, 36%) /* bg-primary-hover */
 
 ## Typography
 

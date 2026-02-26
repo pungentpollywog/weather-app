@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./typography.css">
+    <link rel="stylesheet" href="./app.css">
+    <link rel="icon" href="./assets/images/favicon-32x32.png">
+    <script type="module" src="./components/SummaryCard.js" defer></script>
+    <script type="module" src="./components/HourlyCard.js" defer></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js" defer></script>
+    <script type="module" defer>
+      import UnitsConfigElement from './components/UnitsConfig.js';
+      UnitsConfigElement.define();
+    </script>
+    <title>⛅ Weather app</title>
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <img class="logo" src="./assets/images/logo.svg" alt="logo">
+        <units-config></units-config>
+      </header>
+
+      <section class="hero">
+        <h1>How&apos;s the sky looking today?</h1>
+
+      </section>
+
+      <section class="dashboard">
+        <article class="overview">
+          <div class="details">
+            <p class="md-text">Berlin, Germany</p>
+            <p class="sm-text">Tuesday, Aug 5, 2026</p>
+          </div>
+          <div class="conditions">
+            <img src="./assets/images/icon-sunny.webp" alt="sunny">
+            <p class="xl-text">80&deg;</p>
+          </div>
+        </article>
+
+        <section class="summary">
+          <summary-card label="Feels like" amount="60&deg;"></summary-card>
+          <summary-card label="Humidity" amount="46&percnt;"></summary-card>
+          <summary-card label="Wind" amount="9 mph"></summary-card>
+          <summary-card label="Wind" amount="9 mph"></summary-card>
+        </section>
+
+        <section class="hourly">
+          <header>
+            <p class="sm-text">Hourly Forcast</p>
+            <!-- custom select -->
+          </header>
+
+          <hourly-card icon="./assets/images/icon-overcast.webp" desc="overcast" hour="3 PM" temp="68&deg;"></hourly-card>
+
+        </section>
+      </section>
+    </main>
+  </body>
+
+</html>

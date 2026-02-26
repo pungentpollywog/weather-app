@@ -56,4 +56,28 @@ As an alternative, you could also use the [National Weather Service](https://www
 
 Check their documentation for all available weather parameters and location search capabilities.
 
+#### Geocoder API
+- https://open-meteo.com/en/docs/geocoding-api
+- https://github.com/StephanGeorg/geocoder-geonames
+
+
+### Style Guide notes
+
+#### CSS variable (properties) naming conventions and best pratices
+https://www.fourzerothree.in/p/crafting-a-semantic-colour-system 
+
+### Web Component notes
+
+- https://coderpad.io/blog/development/intro-to-web-components-vanilla-js/ 
+- https://webcomponents.guide/learn/
+
+#### Shadow DOM
+- https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM 
+- https://webcomponents.guide/learn/components/rendering/
+
+#### Icons 
+
+https://docs.boxicons.com/
+
+
 **Have fun building!** 🚀

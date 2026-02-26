@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'DM Sans';
+  src: url(./assets/fonts/DM_Sans/DMSans-VariableFont.ttf);
+}
+
+@font-face {
+  font-family: 'Grotesque';
+  src: url(./assets/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont.ttf);
+}
+
+.xl-text {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+.lg-text {
+  --size: 1.5rem;
+  font-size: var(--size);
+  font-weight: 400;
+  margin: calc(var(--size) * 0.5) 0;
+}
+
+.md-text {
+  --size: 1.25rem;
+  font-size: var(--size);
+  font-weight: bold;
+  margin: calc(var(--size) * 0.5) 0;
+}
+
+.sm-text {
+  font-size: 0.83rem;
+  margin: 0.25rem;
+  font-weight: 600;
+}
+
+.xs-text {
+  font-size: 0.7rem;
+  margin: 0;
+}

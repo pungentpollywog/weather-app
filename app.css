@@ -1,0 +1,134 @@
+:root {
+  --bg-base: hsl(243, 96%, 9%);
+  --bg-base-strongest: hsl(243, 27%, 20%);
+  --bg-base-stronger: hsl(243, 23%, 24%);
+  --bg-base-strong: hsl(243, 23%, 30%);
+  --bg-surface: hsl(240, 6%, 70%); /* hsl(240, 25%, 19%) */
+  --bg-surface-weak: hsl(250, 6%, 84%);
+  --text-brand-default: hsl(0, 0%, 100%);
+  --text-brand-weak: var(--bg-surface-weak);
+
+  --bg-accent: hsl(28, 100%, 52%);
+
+  --bg-primary: hsl(233, 67%, 56%);
+  --bg-primary-hover: hsl(248, 70%, 36%);
+
+  --gap-size: 1.5rem;
+  --gap-size-sm: 0.5rem;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-base);
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+main {
+  margin: 2rem 5rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  .logo {
+    max-width: 150px;
+  }
+}
+
+.dashboard {
+  display: grid;
+  grid-template-areas:
+    'over   over   hour'
+    'summ   summ   hour'
+    'daily  daily  hour';
+  gap: var(--gap-size);
+}
+
+.hero h1 {
+  color: var(--text-brand-default);
+  font-family: 'Grotesque', serif;
+}
+
+.overview {
+  background-image: url('./assets/images/bg-today-large.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  grid-area: over;
+
+  min-height: 15rem;
+  border-radius: 15px;
+  color: var(--text-brand-weak);
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--gap-size);
+    p:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .conditions {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: var(--gap-size);
+    img {
+      max-width: 6rem;
+    }
+  }
+}
+
+.summary {
+  grid-area: summ;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-size);
+}
+
+summary-card,
+.hourly,
+hourly-card {
+  background-color: var(--bg-base-strongest);
+  color: var(--text-brand-weak);
+
+  border-radius: 15px;
+  padding: 0.75rem 1rem 0;
+  img {
+    max-width: 2rem;
+    margin-right: 0.25rem
+  }
+}
+
+hourly-card {
+  background-color: var(--bg-base-stronger);
+  padding: 0;
+  border-radius: 8px;
+  border: var(--bg-base-strong) 1px solid;
+
+  article {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+  }
+  .visual {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.hourly {
+  grid-area: hour;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-size-sm);
+}
