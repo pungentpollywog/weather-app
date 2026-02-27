@@ -3,6 +3,7 @@
 }
 
 button {
+  anchor-name: --toggle-btn;
   background-color: var(--bg-base-strongest);
   color: var(--text-brand-default);
   display: flex;
@@ -13,15 +14,30 @@ button {
   border-radius: var(--item-radius);
   &:hover {
     cursor: pointer;
+    background-color: var(--bg-base-stronger);
   }
 }
 
 article {
+  position: absolute;
+  position-anchor: --toggle-btn;
+  top: anchor(bottom);
+  right: anchor(right);
+  margin-top: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+
   background-color: var(--bg-base-strongest);
   border-radius: 15px;
   padding: 0.5rem 0;
   min-width: 12rem;
   border: solid 1px var(--bg-base-strong);
+}
+
+article > button {
+  margin: 0 0.5rem;
+  padding: 0.75rem 0.5rem;
 }
 
 ul,
