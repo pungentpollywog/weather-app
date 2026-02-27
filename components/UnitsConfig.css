@@ -1,3 +1,7 @@
+:host {
+  --item-radius: 8px;
+}
+
 button {
   background-color: var(--bg-base-strongest);
   color: var(--text-brand-default);
@@ -6,7 +10,7 @@ button {
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--item-radius);
   &:hover {
     cursor: pointer;
   }
@@ -15,6 +19,9 @@ button {
 article {
   background-color: var(--bg-base-strongest);
   border-radius: 15px;
+  padding: 0.5rem 0;
+  min-width: 12rem;
+  border: solid 1px var(--bg-base-strong);
 }
 
 ul,
@@ -28,9 +35,9 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: var(--item-radius);
     &:has(box-icon) {
-      background-color: var(--bg-base-strong);
-      border-radius: 5px;
+      background-color: var(--bg-base-stronger);
     }
   }
 }
@@ -38,7 +45,7 @@ li {
 article > ul {
   padding: 0 0.5rem;
   margin: 0;
-color: var(--text-brand-weak);
+  color: var(--text-brand-weak);
 }
 
 article > ul > li > ul:not(:first-child) {
@@ -46,10 +53,13 @@ article > ul > li > ul:not(:first-child) {
 }
 
 ul > li > ul > li {
-  padding: 0.5rem 0.5rem;
+  padding: 0.75rem 0.5rem;
+  &:has(box-icon) {
+    padding: 0.5rem 0.5rem;
+  }
 }
 
 box-icon {
   fill: var(--text-brand-weak);
-  transform: scale(0.9);
+  transform: scale(0.8);
 }

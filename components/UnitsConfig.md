@@ -27,3 +27,12 @@ It will be anchored to a trigger button using [CSS anchor positioning](https://d
 
 https://docs.boxicons.com/
 
+## TODOs
+
+- Add anchor positioning 
+- Add custom event emitter (toggle between metric and imperial) 
+- Add fetch for location search
+- Add fetch for weather forcast at selected location
+- Add loading state 
+- Add no result found state
+- Add hover styling

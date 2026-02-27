@@ -27,6 +27,7 @@ const categories = [
 
 export default class UnitsConfigElement extends HTMLElement {
   isMetric = true;
+  isExpanded = true;
 
   static define(tagName = 'units-config') {
     customElements.define(tagName, this);
@@ -38,7 +39,7 @@ export default class UnitsConfigElement extends HTMLElement {
   }
 
   connectedCallback() {
-    this.shadowRoot.adoptedStyleSheets = [stylesheet, typography];
+    this.shadowRoot.adoptedStyleSheets = [typography, stylesheet];
     this.render();
   }
 
@@ -89,6 +90,6 @@ export default class UnitsConfigElement extends HTMLElement {
       </button>
     `;
 
-    this.attachCategories();
+    this.isExpanded && this.attachCategories();
   }
 }
