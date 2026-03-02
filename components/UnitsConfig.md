@@ -27,12 +27,18 @@ It will be anchored to a trigger button using [CSS anchor positioning](https://d
 
 https://docs.boxicons.com/
 
+## References
+
+- https://developer.chrome.com/docs/css-ui/anchor-positioning-api 
+
 ## TODOs
 
-- Add anchor positioning 
-- Add custom event emitter (toggle between metric and imperial) 
-- Add fetch for location search
-- Add fetch for weather forcast at selected location
-- Add loading state 
-- Add no result found state
-- Add hover styling
+- [x] Add anchor positioning 
+- [x] add isExpanded boolean attribute (to replace local var) 
+- [ ] move options into a new web component (to better handle attaching and removing listeners when they're added and removed from the DOM.)
+- [ ] Add custom event emitter to new options web component (and use it to toggle between metric and imperial) 
+- [ ] Add fetch for location search
+- [ ] Add fetch for weather forcast at selected location
+- [ ] Add loading state 
+- [ ] Add no result found state
+- [x] Add hover styling
