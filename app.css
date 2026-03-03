@@ -15,6 +15,11 @@
 
   --gap-size: 1.5rem;
   --gap-size-sm: 0.5rem;
+
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 15px;
+
 }
 
 body {
@@ -46,6 +51,20 @@ header {
   gap: var(--gap-size);
 }
 
+.hero {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    article {
+      display: flex;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+}
+
 .hero h1 {
   color: var(--text-brand-default);
   font-family: 'Grotesque', serif;
@@ -59,7 +78,7 @@ header {
   grid-area: over;
 
   min-height: 15rem;
-  border-radius: 15px;
+  border-radius: var(--border-radius-lg);
   color: var(--text-brand-weak);
 
   display: grid;
@@ -99,7 +118,7 @@ hourly-card {
   background-color: var(--bg-base-strongest);
   color: var(--text-brand-weak);
 
-  border-radius: 15px;
+  border-radius: var(--border-radius-lg);
   padding: 0.75rem 1rem 0;
   img {
     max-width: 2rem;
@@ -110,7 +129,7 @@ hourly-card {
 hourly-card {
   background-color: var(--bg-base-stronger);
   padding: 0;
-  border-radius: 8px;
+  border-radius: var(--border-radius-md);
   border: var(--bg-base-strong) 1px solid;
 
   article {
@@ -132,3 +151,25 @@ hourly-card {
   flex-direction: column;
   gap: var(--gap-size-sm);
 }
+
+button {
+  background-color: var(--bg-base-strongest);
+  color: var(--text-brand-default);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  &:hover {
+    cursor: pointer;
+    background-color: var(--bg-base-stronger);
+  }
+  &.primary {
+    background-color: var(--bg-primary);
+    &:hover {
+      background-color: var(--bg-primary-hover);
+    }
+  }
+}
+

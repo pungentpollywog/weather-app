@@ -37,7 +37,7 @@ https://docs.boxicons.com/
 - [x] add isExpanded boolean attribute (to replace local var) 
 - [ ] move options into a new web component (to better handle attaching and removing listeners when they're added and removed from the DOM.)
 - [ ] Add custom event emitter to new options web component (and use it to toggle between metric and imperial) 
-- [ ] Add fetch for location search
+- [ ] Add fetch for location search 
 - [ ] Add fetch for weather forcast at selected location
 - [ ] Add loading state 
 - [ ] Add no result found state

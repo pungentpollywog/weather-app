@@ -60,6 +60,10 @@ Check their documentation for all available weather parameters and location sear
 - https://open-meteo.com/en/docs/geocoding-api
 - https://github.com/StephanGeorg/geocoder-geonames
 
+##### Geocoder example
+```text
+http://api.geonames.org/searchJSON?q=gainesville,florida&country=US&type=JSON&username=cdemaria
+```
 
 ### Style Guide notes
 

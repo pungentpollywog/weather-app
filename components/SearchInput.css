@@ -1,0 +1,8 @@
+
+input {
+    background-color: var(--bg-base-strongest);
+    color: var(--text-brand-default);
+    border: none;
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+}
