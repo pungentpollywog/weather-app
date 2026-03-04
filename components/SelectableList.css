@@ -1,0 +1,20 @@
+ul {
+  background-color: var(--bg-base-strongest);
+  padding: 0.25rem;
+  border-radius: var(--border-radius-md);
+  color: var(--text-brand-default);
+  margin: 0;
+  li {
+    &.selected {
+      background-color: var(--bg-base-stronger);
+      border: 1px solid var(--bg-base-strong);
+    }
+    &:hover {
+      cursor: pointer;
+    }
+
+    list-style: none;
+    border-radius: var(--border-radius-sm);
+    padding: 0.25rem 0.5rem;
+  }
+}

@@ -2,8 +2,8 @@ import stylesheet from './SelectableList.css' with { type: 'css' };
 import typography from '../typography.css' with { type: 'css' };
 
 export default class SelectableListElement extends HTMLElement {
-  items = [];
-  selected = null;
+  _items = []; // {id: string, name: string}
+  _selected = null; // number or null;
 
   static define(tagName = 'selectable-list') {
     customElements.define(tagName, this);
@@ -11,7 +11,7 @@ export default class SelectableListElement extends HTMLElement {
 
   constructor() {
     super();
-    this.attachShadow({mode: 'open'});
+    this.attachShadow({ mode: 'open' });
   }
 
   connectedCallback() {
@@ -23,16 +23,48 @@ export default class SelectableListElement extends HTMLElement {
     return ['items', 'selected'];
   }
 
+  attributeChangedCallback(name, old, val) {
+    switch (name) {
+      case 'items':
+        this.items = val;
+        break;
+      case 'selected':
+        this.selected = val;
+        break;
+    }
+    this.render();
+  }
+
+  get selected() {
+    return this._selected;
+  }
+
+  set selected(val) {
+    this._selected = Number(val);
+  }
+
+  get items() {
+    return this._items;
+  }
+
+  set items(val) {
+    this._items = JSON.parse(val);
+  }
+
   render() {
     const listEl = document.createElement('ul');
 
-    this.items.forEach(item => {
+    this.items.forEach((item) => {
+      console.log({ item });
       const itemEl = document.createElement('li');
-      itemEl.setInnerText = item;
-      listEl.appendChild(itemEl)
-    })
-
-    this.shadowRoot.appendChild(listEl);
-
+      itemEl.innerText = item.name;
+      itemEl.classList.add('sm-text')
+      if (this.selected === item.id) {
+        itemEl.classList.add('selected');
+      }
+      listEl.appendChild(itemEl);
+    });
+    this.shadowRoot.innerHTML = '';
+    this.items?.length > 0 && this.shadowRoot.appendChild(listEl);
   }
 }

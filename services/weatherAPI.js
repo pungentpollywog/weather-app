@@ -22,6 +22,5 @@ https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=tem
 */
 
 export function getForcast(lat, lng) {
-  console.log(baseForcastURL, lat,lng);
   return fetch(`${baseForcastURL}?latitude=${lat}&longitude=${lng}&hourly=temperature_2m&current=temperature_2m`).then(res => res.json());
 }

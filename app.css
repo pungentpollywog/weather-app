@@ -19,7 +19,6 @@
   --border-radius-sm: 5px;
   --border-radius-md: 8px;
   --border-radius-lg: 15px;
-
 }
 
 body {
@@ -52,17 +51,17 @@ header {
 }
 
 .hero {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 
-    article {
-      display: flex;
-      gap: 0.5rem;
-      align-items: stretch;
-    }
+  article {
+    display: flex;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
 }
 
 .hero h1 {
@@ -122,7 +121,7 @@ hourly-card {
   padding: 0.75rem 1rem 0;
   img {
     max-width: 2rem;
-    margin-right: 0.25rem
+    margin-right: 0.25rem;
   }
 }
 
@@ -173,3 +172,20 @@ button {
   }
 }
 
+search-input {
+  anchor-name: --search-input;
+}
+
+.search-io {
+  display: flex;
+  flex-direction: column;
+}
+
+selectable-list.search {
+  position: absolute;
+  position-anchor: --search-input;
+  top: anchor(bottom);
+  left: anchor(left);
+  right: anchor(right);
+  margin: 0.5rem 0 0;
+}

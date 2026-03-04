@@ -18,9 +18,28 @@ export default class SearchInputElement extends HTMLElement {
     return ['placeholder'];
   }
 
+  handleChange(ev) {
+    console.log(ev.target.value);
+    ev.stopPropagation();
+    // console.log('handle changes', ev.target.value);
+    this.emit('update', ev.target.value);
+  }
+
+  emit(type, detail) {
+    let event = new CustomEvent(`search-input-${type}`, {
+      bubbles: true,
+      cancelable: true,
+      detail: detail
+    });
+
+    return this.dispatchEvent(event);
+  }
+
   connectedCallback() {
     this.shadowRoot.adoptedStyleSheets = [typography, stylesheet];
     this.render();
+    this.inputEl = this.shadowRoot.querySelector('input');
+    this.inputEl.addEventListener('input', this.handleChange.bind(this));
   }
 
   attributeChangedCallback(name, old, val) {
@@ -28,6 +47,10 @@ export default class SearchInputElement extends HTMLElement {
       this.placeholder = val;
     }
     this.render();
+  }
+
+  disconnectedCallback() {
+    this.inputEl?.removeEventListener('input', this.handleChange.bind(this));
   }
 
   set placeholder(val) {
