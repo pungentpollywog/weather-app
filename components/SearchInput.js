@@ -15,13 +15,12 @@ export default class SearchInputElement extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['placeholder'];
+    return ['placeholder', 'searchtext'];
   }
 
   handleChange(ev) {
-    console.log(ev.target.value);
     ev.stopPropagation();
-    // console.log('handle changes', ev.target.value);
+    console.log('emit search input ev');
     this.emit('update', ev.target.value);
   }
 
@@ -29,7 +28,7 @@ export default class SearchInputElement extends HTMLElement {
     let event = new CustomEvent(`search-input-${type}`, {
       bubbles: true,
       cancelable: true,
-      detail: detail
+      detail: detail,
     });
 
     return this.dispatchEvent(event);
@@ -43,8 +42,13 @@ export default class SearchInputElement extends HTMLElement {
   }
 
   attributeChangedCallback(name, old, val) {
-    if (name === 'placeholder') {
-      this.placeholder = val;
+    switch (name) {
+      case 'placeholder':
+        this.placeholder = val;
+        break;
+      case 'searchtext':
+        this.searchText = val;
+        break;
     }
     this.render();
   }
@@ -67,6 +71,11 @@ export default class SearchInputElement extends HTMLElement {
 
   get searchText() {
     return this._searchText;
+  }
+
+  reset() {
+    const inputEl = this.shadowRoot.querySelector('input');
+    inputEl.value = '';
   }
 
   render() {

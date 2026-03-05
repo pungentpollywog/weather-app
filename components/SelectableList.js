@@ -51,20 +51,44 @@ export default class SelectableListElement extends HTMLElement {
     this._items = JSON.parse(val);
   }
 
+  handleSelection(ev) {
+    // console.log('make selection', ev.target.value);
+    ev.stopPropagation();
+    const selectedItem = this.items.find(item => item.id === +ev.target.dataset.id);
+    // console.log(ev.target.dataset, selectedItem);
+    this.emit('update', selectedItem);
+  }
+
+  emit(type, detail) {
+    let event = new CustomEvent(`selectable-list-${type}`, {
+      bubbles: true,
+      cancelable: true,
+      detail: detail
+    });
+
+    return this.dispatchEvent(event);
+  }  
+
+  disconnectedCallback() {
+    this.listEl?.removeEventListener('click', this.handleSelection.bind(this));
+  }
+
   render() {
-    const listEl = document.createElement('ul');
+    this.listEl = document.createElement('ul');
+    this.listEl.addEventListener('click', this.handleSelection.bind(this));
 
     this.items.forEach((item) => {
       console.log({ item });
       const itemEl = document.createElement('li');
+      itemEl.dataset.id = item.id;
       itemEl.innerText = item.name;
       itemEl.classList.add('sm-text')
       if (this.selected === item.id) {
         itemEl.classList.add('selected');
       }
-      listEl.appendChild(itemEl);
+      this.listEl.appendChild(itemEl);
     });
     this.shadowRoot.innerHTML = '';
-    this.items?.length > 0 && this.shadowRoot.appendChild(listEl);
+    this.items?.length > 0 && this.shadowRoot.appendChild(this.listEl);
   }
 }

@@ -91,6 +91,9 @@ header {
     p:first-child {
       margin-top: 0;
     }
+    .date {
+      margin: 0;
+    }
   }
 
   .conditions {

@@ -6,10 +6,12 @@ ul {
   margin: 0;
   li {
     &.selected {
-      background-color: var(--bg-base-stronger);
       border: 1px solid var(--bg-base-strong);
     }
+
+    &.selected,
     &:hover {
+      background-color: var(--bg-base-stronger);
       cursor: pointer;
     }
 
