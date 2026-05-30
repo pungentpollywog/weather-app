@@ -1,5 +1,12 @@
-import stylesheet from './SearchInput.css' with { type: 'css' };
-import typography from '../typography.css' with { type: 'css' };
+// Works in Chrome but not Safari:
+// import stylesheet from './SearchInput.css' with { type: 'css' };
+// import typography from '../typography.css' with { type: 'css' };
+
+// Also, works in Chrome but not Safari:
+// const {default: stylesheet} = await import('./SearchInput.css', { with: { type: 'css' } });
+// const {default: typography} = await import('../typography.css', { with: { type: 'css' } });
+
+import { loadStyleSheets } from '../helpers/cssLoader.js';
 
 export default class SearchInputElement extends HTMLElement {
   _placeholder = 'Search ...';
@@ -34,8 +41,10 @@ export default class SearchInputElement extends HTMLElement {
     return this.dispatchEvent(event);
   }
 
-  connectedCallback() {
-    this.shadowRoot.adoptedStyleSheets = [typography, stylesheet];
+  async connectedCallback() {
+    this.shadowRoot.adoptedStyleSheets = await loadStyleSheets(
+      ['../typography.css', './SearchInput.css'].map((path) => new URL(path, import.meta.url)),
+    );
     this.render();
     this.inputEl = this.shadowRoot.querySelector('input');
     this.inputEl.addEventListener('input', this.handleChange.bind(this));

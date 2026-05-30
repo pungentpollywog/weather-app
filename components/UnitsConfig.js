@@ -1,5 +1,4 @@
-import stylesheet from './UnitsConfig.css' with { type: 'css' };
-import typography from '../typography.css' with { type: 'css' };
+import { loadStyleSheets } from '../helpers/cssLoader.js';
 
 const categories = [
   {
@@ -58,8 +57,10 @@ export default class UnitsConfigElement extends HTMLElement {
     return this._isMetric;
   }
 
-  connectedCallback() {
-    this.shadowRoot.adoptedStyleSheets = [typography, stylesheet];
+  async connectedCallback() {
+    this.shadowRoot.adoptedStyleSheets = await loadStyleSheets(
+      ['../typography.css', './UnitsConfig.css'].map((path) => new URL(path, import.meta.url)),
+    );
     this.render();
   }
 

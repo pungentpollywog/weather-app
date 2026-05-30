@@ -1,5 +1,4 @@
-import stylesheet from './SelectableList.css' with { type: 'css' };
-import typography from '../typography.css' with { type: 'css' };
+import { loadStyleSheets } from '../helpers/cssLoader.js';
 
 export default class SelectableListElement extends HTMLElement {
   _items = []; // {id: string, name: string}
@@ -14,8 +13,10 @@ export default class SelectableListElement extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  connectedCallback() {
-    this.shadowRoot.adoptedStyleSheets = [typography, stylesheet];
+  async connectedCallback() {
+    this.shadowRoot.adoptedStyleSheets = await loadStyleSheets(
+      ['../typography.css', './SelectableList.css'].map((path) => new URL(path, import.meta.url)),
+    );
     this.render();
   }
 
@@ -54,7 +55,7 @@ export default class SelectableListElement extends HTMLElement {
   handleSelection(ev) {
     // console.log('make selection', ev.target.value);
     ev.stopPropagation();
-    const selectedItem = this.items.find(item => item.id === +ev.target.dataset.id);
+    const selectedItem = this.items.find((item) => item.id === +ev.target.dataset.id);
     // console.log(ev.target.dataset, selectedItem);
     this.emit('update', selectedItem);
   }
@@ -63,11 +64,11 @@ export default class SelectableListElement extends HTMLElement {
     let event = new CustomEvent(`selectable-list-${type}`, {
       bubbles: true,
       cancelable: true,
-      detail: detail
+      detail: detail,
     });
 
     return this.dispatchEvent(event);
-  }  
+  }
 
   disconnectedCallback() {
     this.listEl?.removeEventListener('click', this.handleSelection.bind(this));
@@ -82,7 +83,7 @@ export default class SelectableListElement extends HTMLElement {
       const itemEl = document.createElement('li');
       itemEl.dataset.id = item.id;
       itemEl.innerText = item.name;
-      itemEl.classList.add('sm-text')
+      itemEl.classList.add('sm-text');
       if (this.selected === item.id) {
         itemEl.classList.add('selected');
       }
